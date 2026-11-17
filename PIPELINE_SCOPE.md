@@ -1,31 +1,41 @@
-# Pipeline stages and release coverage
+# Analysis pipeline and available workflows
 
-The accompanying dataset separates two uses: a small real input/output demo for the compiled feature core, and complete retained derived observations for reproducing the manuscript statistics.
+The study combines cell-shape dynamics and locomotion to identify stereotyped behavioral motifs. The processing sequence is:
 
-| Stage | In this candidate | Additional requirements for a complete raw-data rebuild |
-|---|---|---|
-| Microscopy acquisition | Two tracked-cell fixed crops, 16 frames each | Complete acquisition movies, timing and plate maps |
-| CPDINO segmentation and Trackastra tracking | Frozen target-cell masks and centroid tracks for demo | External packages, original checkpoints, inference settings and full images |
-| Fourier and centroid-motion features | Compiled original core plus public interface and expected demo outputs | Full tracked contours/coordinates for every cell |
-| Dynamic temporal segmentation (ACA/DTAK) | Methods documented; no third-party implementation bundled | Separately obtained original ACA/DTAK and licensed MATLAB |
-| Atlas fitting | Frozen 5,000-reference coordinates/assignments per separate model and displayed matrix overview | Full reference features, selections/seeds, fitted normalization, full pairwise similarities and UMAP dependencies |
-| Point aggregation and inference | Complete derived point values; portable ANOVA/Tukey replay | Raw-to-point processing is upstream and not repeated by replay |
-| Publication figures | Final reference PNGs and new quantitative diagnostic plots | Historical layout scripts and original representative image assets for exact layout reconstruction |
+```text
+Live-cell images
+  → cell segmentation and tracking
+  → Fourier shape descriptors and centroid motion
+  → dynamic temporal segmentation and DTAK similarity
+  → behavior atlas embedding and motif identification
+  → point-level motif fractions and treatment comparisons
+```
 
-The original temporal segmentation used nMi=4 for initialization and maximum segment length 12; the unchanged original search can produce shorter segments. Training/refitting on the two supplied cells would not reconstruct the original atlas and is not claimed to do so.
+The repository provides an executable feature demonstration and statistical reproduction workflow. The Zenodo deposit supplies their inputs and the retained analysis outputs.
 
-The final analysis uses Ward clustering on its retained representation, not the historical Leiden/igraph trials. A display matrix downsample and frozen embedding coordinates are visualization results, not replacements for full atlas-fitting inputs. Cell models have separate class definitions.
+| Stage | Available material | Requirements for a complete raw-image analysis |
+| --- | --- | --- |
+| Imaging | Two tracked-cell image sequences, each with 16 frames | Complete acquisition movies, timing, and plate maps |
+| CPDINO segmentation and Trackastra tracking | Target-cell masks and centroid tracks for the demonstration | Full images, model weights, and inference settings |
+| Fourier descriptors and motion | Compiled feature module, Python interface, and reference features | Tracked contours and centroids for every cell |
+| Dynamic temporal segmentation and DTAK similarity | Segmented behavior and atlas outputs in the derived data | Full feature sequences and the upstream temporal-analysis software |
+| Atlas construction | 5,000 reference coordinates and assignments per cell model, plus the displayed similarity overview | Reference feature sequences, full similarities, normalization, and embedding parameters |
+| Statistical analysis | Point-level measurements and executable ANOVA/Tukey calculations | Included in the deposited derived-data workflow |
+| Figures | Reference figure PNGs and independently regenerated quantitative plots | Representative images and layout assets for exact figure composition |
 
-The author-private archive retains project source snapshots, native source/build information and path-bearing provenance. It is separate from the binary repository. The historical source snapshot is an audit record with workstation paths, not an independently portable raw-image pipeline.
+The temporal analysis used a four-frame initialization minimum and a twelve-frame maximum segment length. Shorter segments produced by the temporal search were retained. Motif identification used Ward hierarchical clustering. MDA-MB-231 and iDMSC have separate motif definitions.
+
+The minimal examples demonstrate feature computation for individual cells. Complete atlas refitting requires the full inputs listed above; the deposited reference coordinates and displayed similarity overview are visualization outputs rather than substitutes for those inputs.
 
 ## Upstream software
 
-- CPDINO/Cellpose: https://github.com/MouseLand/cellpose
-- Trackastra: https://github.com/weigertlab/trackastra
-- Original Behavior Atlas with nested ACA/DTAK components: https://github.com/huangkang314/Behavior-Atlas
-- MATLAB: https://www.mathworks.com/products/matlab.html
+- [CPDINO/Cellpose](https://github.com/MouseLand/cellpose): cell segmentation.
+- [Trackastra](https://github.com/weigertlab/trackastra): cell tracking.
+- [Behavior Atlas](https://github.com/huangkang314/Behavior-Atlas): temporal analysis and DTAK similarity.
+- [MATLAB](https://www.mathworks.com/products/matlab.html): runtime for the upstream temporal-analysis implementation.
 
-Acquire these independently, under their respective terms. A top-level repository license must not be assumed to replace a restricted nested component's notice. Any separate institutional commercial authorization covers only rights the institution actually holds; it does not narrow permissions already granted by LICENSE. See THIRD_PARTY_NOTICES.md.
+Upstream software is obtained separately under its own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-For the installed and verified native interface, see NATIVE_CORE_README.md. For reproduced model families, effect directions, statistical units, tolerances and commands, see REPLAY_README.md.
+## Running the available workflows
 
+Use [NATIVE_CORE_README.md](NATIVE_CORE_README.md) for the real-cell feature demonstration and [REPLAY_README.md](REPLAY_README.md) for the figure-level statistical calculations. The [dataset record](https://doi.org/10.5281/zenodo.24302450) and its data dictionary document the input variables, units, and cell-model-specific motif definitions.

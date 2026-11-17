@@ -1,32 +1,34 @@
 {
-  "version": "0.1.0-rc2",
-  "status": "Private GitHub software repository; companion dataset published on Zenodo; no public software release or software DOI",
+  "name": "Cellular Behavior Atlas (CBeA)",
   "software_license": "PolyForm-Noncommercial-1.0.0",
+  "repository_url": "https://github.com/YNCris/CBeA",
+  "dataset": {
+    "doi": "10.5281/zenodo.24302450",
+    "concept_doi": "10.5281/zenodo.24302449",
+    "record_url": "https://zenodo.org/records/24302450",
+    "license": "CC-BY-NC-4.0",
+    "archive_sha256": "6f652896f021709a5cc750bd402237a381cce74fc4d945ef73d6e5fbcb8cbc70"
+  },
   "files": [
     {
+      "path": ".gitattributes",
+      "bytes": 67,
+      "sha256": "5f72431d9361d1d77bc347c58af0cc523fbee22bfd18ea8faadcbeb4e12eca31"
+    },
+    {
       "path": ".gitignore",
-      "bytes": 39,
-      "sha256": "65a1ed2dfb1f4c81e49a31920484c08af6170ff8348ecbed75a9a06f78ee5e83"
-    },
-    {
-      "path": "AVAILABILITY_TEMPLATE.md",
-      "bytes": 2582,
-      "sha256": "601d8aef104995c0403f80906990eb694e5f942dfc66ae49f8a328f8e8573f53"
-    },
-    {
-      "path": "cellatlas_repro/__init__.py",
-      "bytes": 1210,
-      "sha256": "29ebb4a42bd2cf2e0418f20d30a09cb561ee8267a74ba2af810c78fb65ae34f4"
-    },
-    {
-      "path": "cellatlas_repro/_native.cp310-win_amd64.pyd",
-      "bytes": 32768,
-      "sha256": "a5d4fa45aa4a00ada936747a171e6e3ba632e4eda738368d39184b2457b6e186"
+      "bytes": 35,
+      "sha256": "0ba4ceab036dad38a6b20cb2d2f3e7ed1aa2be25fa22f9585220436d7bc88b9c"
     },
     {
       "path": "CITATION.cff",
-      "bytes": 1697,
-      "sha256": "349f6fc760a04a08f933fc283bc0985cb665d078918abf59122c995db5ffa9c8"
+      "bytes": 1330,
+      "sha256": "8a1dc255d0dc426224dc0f40dbbbe554e0511d5861dbf57b45c4c2e0e27161a0"
+    },
+    {
+      "path": "DATA_AVAILABILITY.md",
+      "bytes": 1564,
+      "sha256": "24bb96dfb9356942c9b3cd61ecd6808d0ec23f397c3a4ac5660a5ae467381ea9"
     },
     {
       "path": "LICENSE",
@@ -35,96 +37,83 @@
     },
     {
       "path": "NATIVE_CORE_README.md",
-      "bytes": 3252,
-      "sha256": "a3263e74bad1e75898f2d7b012aeaa16fb0bd642c2f089f7e74b7699bf058d04"
+      "bytes": 3594,
+      "sha256": "0a51ccf3428c4920cc0ae5b5919e9338114d6b32e02aad39955d84d84e5583cd"
     },
     {
       "path": "NOTICE",
-      "bytes": 1700,
-      "sha256": "36b3435d6805cc9a1f12dec884b4ec82bd5e8ee598e5d10ea868255d09383f6f"
+      "bytes": 1661,
+      "sha256": "f78f75c94a303dad39dd3cbece8f60b853437cc1e6255fc8f4268879236a2694"
     },
     {
       "path": "PIPELINE_SCOPE.md",
-      "bytes": 3287,
-      "sha256": "88ee4094285182544249467f3d98e2518ce5e6cc8a69775b8a9559f454cd3436"
+      "bytes": 3327,
+      "sha256": "bbb95461178d2a9dfd00bb68874241c25689cf22dde9aac64be296b09d548d3a"
     },
     {
       "path": "README.md",
-      "bytes": 7373,
-      "sha256": "87784390a5b016c9d76967e38ffebd545d8b21331c66c60cae1963c679a18dea"
+      "bytes": 6081,
+      "sha256": "31cbc59393a2a4f326c19b0e02998656ccbc1f73b3ec03deaa88ecd3843612e4"
     },
     {
       "path": "REPLAY_README.md",
-      "bytes": 4592,
-      "sha256": "5a34e3ade22e77f9c661a858a4218371fef26dc5e2909e76f2473ecfedf98b42"
-    },
-    {
-      "path": "reproduce.py",
-      "bytes": 20799,
-      "sha256": "0f5a76cc759701e877e9376c14db825ce48f1423d7df93b0823b24186a0de5d6"
-    },
-    {
-      "path": "requirements-replay.txt",
-      "bytes": 463,
-      "sha256": "db604096346266a28c73560fce59c05aefa860aec5b25a6af224087c3b2bddc1"
+      "bytes": 4989,
+      "sha256": "33e4ee102e841bd45189b49b3b4d310a457ac78f74b7c3174675d4bd8e27554a"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "bytes": 7098,
-      "sha256": "d70f08aff6ea7ba7a3059d7e91035eca8201cba617642b5fea52e1d0c883d2cd"
+      "bytes": 2594,
+      "sha256": "25685d6a06a8b042f9a6b784ae1be38370625b0665619e1c51ca05eb2763f9e9"
+    },
+    {
+      "path": "cellatlas_repro/__init__.py",
+      "bytes": 1169,
+      "sha256": "5172c8af329279a73687dc930f8624621ab1cb61012f8162a1f8fd4cc0f71774"
+    },
+    {
+      "path": "cellatlas_repro/_native.cp310-win_amd64.pyd",
+      "bytes": 32768,
+      "sha256": "a5d4fa45aa4a00ada936747a171e6e3ba632e4eda738368d39184b2457b6e186"
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 20456,
+      "sha256": "5a5521e9e1d5d6680a420433363d75dd03e1558ce6d12a2ebd0874b085a05603"
+    },
+    {
+      "path": "requirements-demo.txt",
+      "bytes": 67,
+      "sha256": "cd037f47d758a8678698d62c6a7930cbd8c92a1bf3a6d8c36888ac27f9369a97"
+    },
+    {
+      "path": "requirements-replay.txt",
+      "bytes": 462,
+      "sha256": "8b0df54bf11dd7c6b5a51fb88d73fda4a1a544b626c8056be1c15bc8ef016598"
     },
     {
       "path": "validate_demo.py",
-      "bytes": 4768,
-      "sha256": "1b145a3ded9a502ee093b0238c8ade7818348b5846c923dcb4ee8e45bcebd041"
+      "bytes": 4710,
+      "sha256": "8b0a4277a8c38b7e03eba0874324e1e702c56168a0ba9c2f84fad5325829cc6b"
     },
     {
-      "path": "validation/full_statistics_verification.json",
-      "bytes": 5632,
-      "sha256": "01b811639bafc9400ad1153be2b5c7e60c3d9b20af96472ebf2d359e3266ca70"
+      "path": "validation/demo.json",
+      "bytes": 2606,
+      "sha256": "7d1c6b0a3fa7116fde20324f63aab75240c9e7ffa64adf2a59b42621292b1d35"
     },
     {
-      "path": "validation/license_migration.json",
-      "bytes": 349,
-      "sha256": "0fc87f1a9ad981ab18f439c6b5bf33e491444ed8ec3498b68b39e9586135b41d"
+      "path": "validation/environment.json",
+      "bytes": 881,
+      "sha256": "3c3498d7b996132ba2dd50cd7d9cf2aeb912c2ee825cb87a569cf7aaf38fac1c"
     },
     {
-      "path": "validation/license_source.json",
-      "bytes": 403,
-      "sha256": "ec633102282adfab0b6449a87bc0ba27dd05083cfcefa224e6ace5e5e60097e7"
-    },
-    {
-      "path": "validation/native_validation.json",
-      "bytes": 2712,
-      "sha256": "e738a6898a84a7dfff9e4d6239a3ebc3d0e9aa1fddcbda9cb9dc7db9b3bf70ba"
-    },
-    {
-      "path": "validation/package_validation.json",
-      "bytes": 3228,
-      "sha256": "c0beeb610917ddde1b107dc9bd5bf34fde12a782b7b6d7e6790863213f05b04b"
+      "path": "validation/statistics.json",
+      "bytes": 5454,
+      "sha256": "57b3693c47f574ce6178642c9893c38546a7511ba89223862cd3e183fff59337"
     },
     {
       "path": "verify_release.py",
-      "bytes": 1721,
-      "sha256": "7751a08a8f9fd157ca4bf7edbd3f5cd23da98fb76cbd2db0028ca7fb6d59b23e"
-    },
-    {
-      "path": "wheels/cellatlas_repro_core-0.1.0rc2-cp310-cp310-win_amd64.whl",
-      "bytes": 21487,
-      "sha256": "dde554a02f0deeb597d05fcd6e9d2913ea8a28c23438bdd19bc7b77d9541598f"
+      "bytes": 2564,
+      "sha256": "f5efe516b8cf99da2cfc869fed1d14c50051ab5fdd76773a930ba622975ee102"
     }
-  ],
-  "repository_url": "https://github.com/YNCris/CBeA",
-  "repository_visibility": "private",
-  "source_package_manifest_sha256": "6f7855b08f3233d7c4101c6a65b6ab45291ce5e52105e9fbe491401a8e83a069",
-  "dataset": {
-    "record_url": "https://zenodo.org/records/24302450",
-    "version_doi": "10.5281/zenodo.24302450",
-    "concept_doi": "10.5281/zenodo.24302449",
-    "version": "0.1.0-rc2",
-    "license": "CC-BY-NC-4.0",
-    "archive": "CBeA_dataset_0.1.0-rc2.zip",
-    "archive_bytes": 33832968,
-    "archive_sha256": "6f652896f021709a5cc750bd402237a381cce74fc4d945ef73d6e5fbcb8cbc70"
-  }
+  ]
 }

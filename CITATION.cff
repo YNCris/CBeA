@@ -1,24 +1,26 @@
 cff-version: 1.2.0
-message: "Please cite this software and the companion Zenodo dataset in references. The dataset DOI is not a software DOI; the code repository remains private."
+message: Please cite the associated study and the companion dataset listed below when
+  using CBeA.
 type: software
-title: "Cellular Behavior Atlas (CBeA): nitrate manuscript reproduction package"
-version: "0.1.0-rc2"
-license: "PolyForm-Noncommercial-1.0.0"
+title: Cellular Behavior Atlas (CBeA)
+license: PolyForm-Noncommercial-1.0.0
 authors:
-  - family-names: Han
-    given-names: Yaning
-  - family-names: Hou
-    given-names: Xiaoting
-  - family-names: Li
-    given-names: Xiaoyu
-  - family-names: Zhang
-    given-names: Ran
-  - family-names: Chen
-    given-names: Mo
-  - family-names: Wang
-    given-names: Songlin
-abstract: "Compiled original feature demonstration and derived-data statistical reproduction for Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion. Original software is licensed under PolyForm Noncommercial 1.0.0; the repository is private and no software DOI has been assigned. The companion dataset is published on Zenodo (see references)."
-repository-code: "https://github.com/YNCris/CBeA"
+- family-names: Han
+  given-names: Yaning
+- family-names: Hou
+  given-names: Xiaoting
+- family-names: Li
+  given-names: Xiaoyu
+- family-names: Zhang
+  given-names: Ran
+- family-names: Chen
+  given-names: Mo
+- family-names: Wang
+  given-names: Songlin
+abstract: Compiled Fourier contour and centroid-motion feature analysis, with scripts
+  for reproducing the study's derived measurements, statistical comparisons and quantitative
+  plots.
+repository-code: https://github.com/YNCris/CBeA
 references:
 - type: data
   title: 'Nitrate shapes stress-resilient behavioral dynamics during sustained cellular
@@ -36,7 +38,6 @@ references:
     given-names: Mo
   - family-names: Wang
     given-names: Songlin
-  version: 0.1.0-rc2
   date-released: '2026-11-17'
   year: 2026
   doi: 10.5281/zenodo.24302450

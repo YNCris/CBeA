@@ -1,71 +1,98 @@
-# Cellular Behavior Atlas (CBeA): manuscript reproduction package
+# CBeA: Cellular Behavior Atlas
 
-Submission candidate **0.1.0-rc2**, prepared for *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion* (V14).
+CBeA combines cell-shape dynamics and centroid motion to characterize cellular behavior. This repository accompanies *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion* and provides the compiled feature-extraction module, a real-cell demonstration, and scripts to reproduce the quantitative analyses in Figures 1–3.
 
-This repository contains a compiled **original Fourier contour/motion feature core**, a small real-data demo interface, and inspectable scripts for reproducing derived quantitative analyses. It is not a compiled redistribution of the original ACA/DTAK implementation or a substitute for its license. No model-training jobs or complete raw acquisitions are included.
+## Data
 
-## Published dataset
+[Download the accompanying data from Zenodo](https://zenodo.org/records/24302450). The deposit contains two real-cell examples, derived measurements, motif definitions, atlas visualization coordinates, statistical reference results, and figure exports.
 
-The companion **source data and minimal demonstration** are publicly available on Zenodo:
+**Dataset DOI:** [10.5281/zenodo.24302450](https://doi.org/10.5281/zenodo.24302450). Use this DOI to cite the data used by these analyses. The [all-versions DOI](https://doi.org/10.5281/zenodo.24302449) points to the latest dataset deposit.
 
-- [Dataset record and files](https://zenodo.org/records/24302450)
-- **Version DOI (0.1.0-rc2): [10.5281/zenodo.24302450](https://doi.org/10.5281/zenodo.24302450)** — cite this DOI to identify the exact dataset used here.
-- [All-versions DOI: 10.5281/zenodo.24302449](https://doi.org/10.5281/zenodo.24302449) — resolves to the latest dataset version.
-- Data license: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Uses outside its permissions require separate authorization from the relevant rightsholder(s).
-
-[Download CBeA_dataset_0.1.0-rc2.zip (33.8 MB)](https://zenodo.org/records/24302450/files/CBeA_dataset_0.1.0-rc2.zip?download=1). SHA-256:
-
-    6f652896f021709a5cc750bd402237a381cce74fc4d945ef73d6e5fbcb8cbc70
-
-The deposit contains the minimal real-cell demos and retained derived measurements, atlas visualization outputs, statistical results and reference figures. Its scope and limitations are described below and in the dataset README. These DOIs identify the **dataset**, not the software. This code repository remains private and uses the separate PolyForm Noncommercial 1.0.0 license.
-
-## Quick start
-
-The native core build targets **64-bit Windows, CPython 3.10**. Other platforms require a separately built and validated binary; they have not been tested by this release. The statistical replay itself is portable Python and does not require the native extension or MATLAB.
-
-1. Obtain the code with owner-authorized repository access, and download the dataset ZIP linked above. Extract the ZIP alongside this code directory so that the input data are available at `../dataset/`.
-2. Use a Python 3.10 environment. Install the supplied native wheel as described in `NATIVE_CORE_README.md`, and install `requirements-replay.txt` for statistical replay.
-3. Run the documented compiled-core demo against `dataset/minimal_demo`. It checks computed features against original expected outputs. See `NATIVE_CORE_README.md` for the exact command and tested build information.
-4. Recompute derived statistics:
+Extract the archive beside the repository so that the directories are arranged as follows:
 
 ```text
-python reproduce.py --data ../dataset --out ../replayed_statistics
-python reproduce.py --data ../dataset --out ../replayed_all_probabilities --full-p
+working_directory/
+├── CBeA/          # this repository
+└── dataset/      # extracted Zenodo data
 ```
 
-Default mode independently recomputes all group means, ANOVA effects, Tukey differences/q/CI/significance, and a declared subset of numeric adjusted p values. `--full-p` recomputes every numeric adjusted p value. Both modes produce `verification.json` and fresh quantitative plots. The comparison uses original frozen exports solely as references, never as substitute computed results. More details and numerical tolerances are in `REPLAY_README.md`.
+Verify the extracted data and repository checksums before analysis:
 
-## Reproduction scope
+```text
+python verify_release.py --code . --data ../dataset
+```
 
-| Included computation | Input | Coverage |
-| --- | --- | --- |
-| Native Fourier and motion demo | Two real tracked-cell contour/position/time sequences | Exact feature equivalence check; neither segmentation nor ACA fitting |
-| ANOVA and Tukey replay | Full retained point-level derived values | All manuscript cohorts, outcomes and 20 named motifs per cell model |
-| Quantitative plots | Retained source point measurements | Independently redrawn statistical panels; not decorative or pixel-identical final layouts |
-| Frozen atlas visualization sources | 5,000 coordinates/model and displayed similarity overview | Visualization of original atlas results, not full atlas refitting |
+## Installation
 
-Full raw-image reprocessing additionally requires original acquisition files, CPDINO/Trackastra weights and configuration, original ACA/DTAK and MATLAB dependencies, reference features and full fitted atlas artifacts. They are not bundled. The two-cell demo and frozen coordinate tables do not establish a full raw-to-paper reproduction. See `THIRD_PARTY_NOTICES.md` and the dataset README.
+The supplied compiled module requires **CPython 3.10 on 64-bit Windows**. Statistical analysis uses NumPy, SciPy, pandas, and Matplotlib; the tested dependency versions are specified in [requirements-replay.txt](requirements-replay.txt). Computation runs on the CPU; a GPU is not required. The statistical script uses one BLAS/OpenMP thread.
 
-The statistical unit remains the original imaging point, with its known within-well dependence. This is verification of the manuscript's exploratory computation, not a new biological-replication design. Motif IDs are model-specific: zero is undefined and the named classes are 1–20; do not renumber zero as class 1. The latest Figure 2 uses untransformed ΔF/F0 values.
+From the repository directory, in a Python 3.10 environment, install the dependencies:
 
-## License and institutional authorization
+```text
+python -m pip install -r requirements-replay.txt
+```
 
-The original software in this release is licensed under **PolyForm Noncommercial License 1.0.0** (SPDX: PolyForm-Noncommercial-1.0.0). The complete, unmodified terms are in LICENSE; software scope and commercial-inquiry routes are in NOTICE.
+The compiled module is included in `cellatlas_repro/` and is loaded directly by the demonstration script. For binary compatibility and runtime requirements, see [the feature-extraction guide](NATIVE_CORE_README.md).
 
-The license permits noncommercial purposes and the uses expressly covered by its other provisions. Its Noncommercial Organizations provision permits use by the listed charitable, educational, public research, public safety or health, environmental protection, and government organizations regardless of funding source or resulting funding obligations. This release does not narrow those permissions.
+## Run the demonstration
 
-Uses outside the permission granted by that license require separate authorization from the relevant institutional rightsholder(s), acting through an authorized representative. Commercial inquiries may be routed through Songlin Wang (slwang@ccmu.edu.cn) or Mo Chen (chenm7@sustech.edu.cn); these contacts are not assertions of personal ownership or authority to bind every institution.
+```text
+python validate_demo.py --data ../dataset/minimal_demo --out ../results/native/validation.json
+```
 
-Third-party components keep their original terms. The dataset, microscopy images, figures and manuscript tables are licensed separately and are not covered by this software grant. This is a partially source-available software distribution with a compiled core; it is not described as an OSI-approved open-source release.
+This command recomputes Fourier descriptors and motion measurements for one MDA-MB-231 cell and one iDMSC cell, each followed for 16 frames. It checks the input-file hashes and compares the calculated features with the supplied reference values. A successful run writes `validation.json` with `passed: true` and one recomputed NPZ file per cell.
 
-The C++ source and build records remain in a separate author-private bundle for institutional/editorial review and reproducibility auditing. They are excluded from the public binary package. Compilation does not guarantee protection against reverse engineering. Journal code-access requirements are assessed separately from the license choice.
+## Reproduce the figure analyses
 
-## Version and citation
+```text
+python reproduce.py --data ../dataset --out ../results/statistics
+```
 
-Use CITATION.cff for software citation metadata and its companion dataset reference. The code is held in the [private CBeA repository](https://github.com/YNCris/CBeA); access requires authorization from its owner. Software version 0.1.0-rc2 remains a submission candidate with no public software release or software DOI.
+The script independently calculates group means, two-way ANOVA, and Tukey comparisons from the deposited point-level measurements. It produces:
 
-Cite the published dataset as:
+| Output | Content |
+| --- | --- |
+| `group_means_recomputed.csv` | Group means and sample counts |
+| `ANOVA_recomputed.csv` | Main effects, interaction, and ANOVA statistics |
+| `Tukey_recomputed.csv` | Pairwise differences, confidence intervals, and significance |
+| `verification.json` | Numerical comparisons against the reference results |
+| Three PNG files | Recomputed quantitative plots for Figures 1–3 |
 
-> Han, Y., Hou, X., Li, X., Zhang, R., Chen, M., & Wang, S. (2026). *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion: source data and minimal demonstration* (Version 0.1.0-rc2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24302450
+The default mode evaluates every comparison's significance and a subset of numeric adjusted p values. To calculate **all** numeric Tukey adjusted p values, run:
 
-Dataset and code manifests contain content hashes; verify them after transfer. Original data, manuscript and historical analyses were not overwritten.
+```text
+python reproduce.py --data ../dataset --out ../results/statistics_full --full-p
+```
+
+See [the statistical analysis guide](REPLAY_README.md) for the calculation conventions, validation tolerances, and output interpretation.
+
+## Runtime
+
+Measured in a fresh CPython 3.10.20 environment on Windows x64 (Intel(R) Core(TM) i9-14900K, 127.7 GiB RAM), with one BLAS/OpenMP thread and no GPU:
+
+| Step | Elapsed time |
+| --- | ---: |
+| Create isolated environment | 4.5 s |
+| Download and install dependencies | 44.9 s |
+| Run the two-cell demonstration | 0.63 s |
+| Reproduce statistics, default mode | 11.6 s |
+
+Installation time depends on network access; analysis time depends on hardware and storage. These measurements include process startup. The default replay passed verification for 88 statistical families, 264 ANOVA effects, all 45,210 Tukey significance decisions and 253 numeric adjusted p values. See [the environment record](validation/environment.json) and [the feature-validation report](validation/demo.json).
+
+The retained [full adjusted-p verification](validation/statistics.json) additionally checked all 45,210 numeric adjusted p values and completed in 372 s in its recorded run.
+
+## Analysis scope
+
+The executable workflows cover feature extraction from tracked contours and centroids, and statistical analysis of derived measurements. The study's full imaging workflow additionally uses segmentation, tracking, dynamic temporal segmentation, DTAK similarity, embedding, and motif identification. Full image processing and atlas refitting require inputs and upstream software beyond the deposited demonstration. [Pipeline coverage](PIPELINE_SCOPE.md) identifies the available inputs and computations for each stage.
+
+## Citation
+
+> Han, Y., Hou, X., Li, X., Zhang, R., Chen, M., & Wang, S. *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion: source data and minimal demonstration*. Zenodo. https://doi.org/10.5281/zenodo.24302450
+
+Machine-readable software and data references are provided in [CITATION.cff](CITATION.cff). The DOI above identifies the dataset. [Data and code availability](DATA_AVAILABILITY.md) provides the accompanying availability statement.
+
+## License and contact
+
+The software is distributed under the [PolyForm Noncommercial License](LICENSE); the data use [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Commercial uses outside the relevant license permissions require institutional authorization. See [NOTICE](NOTICE) and [third-party notices](THIRD_PARTY_NOTICES.md) for scope and attribution.
+
+For scientific questions or authorization enquiries, contact Songlin Wang ([slwang@ccmu.edu.cn](mailto:slwang@ccmu.edu.cn)) or Mo Chen ([chenm7@sustech.edu.cn](mailto:chenm7@sustech.edu.cn)).

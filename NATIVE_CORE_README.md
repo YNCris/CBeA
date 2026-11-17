@@ -1,34 +1,51 @@
-# Compiled feature core
+# Fourier and motion feature extraction
 
-The original Fourier/motion feature software is licensed under **PolyForm Noncommercial License 1.0.0**. See the unmodified LICENSE and scope/contact information in NOTICE. Third-party components retain their original terms.
+The compiled CBeA module calculates cell-shape descriptors from contours and locomotion measurements from tracked centroids. The demonstration uses the same feature definitions as the study.
 
-## Supported binary platform
+## Requirements
 
-- CPython 3.10, 64-bit Windows (`cp310-win_amd64`). Python 3.11/3.12 and Linux/macOS cannot load this binary.
-- Separately installed NumPy 1.23 or later, below 3.
-- Microsoft Visual C++ 2015-2022 Redistributable (x64), if not already installed.
+- CPython 3.10 on 64-bit Windows (`cp310-win_amd64`).
+- NumPy; the tested environment is specified in [requirements-replay.txt](requirements-replay.txt).
+- Microsoft Visual C++ 2015–2022 Redistributable (x64), where it is not already installed.
 
-The Python interpreter, NumPy/OpenBLAS, Microsoft runtime and compiler are not bundled. The author-only C++ source/build recipe is retained outside the public code archive. Additional operating systems require separate author builds; they have not been validated by this release.
+The native extension is included in `cellatlas_repro/` and is imported directly from this repository. It does not require a compiler or a GPU at runtime. The supplied binary is specific to this Python and operating-system combination; other platforms require a compatible build.
 
-## Run the real-data demo
+To install only the feature demonstration's dependency, run:
 
-From this code directory, using a CPython 3.10 environment with NumPy:
-
-```powershell
-python validate_demo.py --data ..\dataset\minimal_demo --out ..\demo_output\native_validation.json
+```text
+python -m pip install -r requirements-demo.txt
 ```
 
-Replace the dataset path with the extracted dataset archive's `minimal_demo` folder. The local `cellatlas_repro` package contains the native extension, so no wheel installation is necessary for this command. Alternatively install the matching wheel from `wheels/` into a Python 3.10 environment. The same PolyForm terms and NOTICE are included inside the wheel.
+## Demonstration
 
-The validation first checks SHA-256 checksums of the input and reference files, then independently recomputes all 60 Fourier invariants, 33 reconstructible complex coefficients and seven motion columns for two 16-frame real-cell sequences. It compares those values to the original analysis exports and writes JSON diagnostics plus recomputed NPZ files. It exits with an error if any check fails. This is a numerical equivalence test, not evidence that every scientific inference is reproduced from this small demo.
+Download and extract the [Zenodo dataset](https://doi.org/10.5281/zenodo.24302450). From the repository directory, run:
 
-## What is and is not compiled
+```text
+python validate_demo.py --data ../dataset/minimal_demo --out ../results/native/validation.json
+```
 
-Compiled functions perform contour orientation handling, equal arc-length sampling (256 points), complex Fourier coefficients and scale-normalized invariants through harmonic order 16, and motion on contiguous observed identity intervals. Python wrappers only adapt arrays and expose column names.
+Change `--data` if the dataset was extracted elsewhere. The output directory is created automatically.
 
-Inputs are already extracted physical contour vertices and measured centroids. Image-y is negated for Cartesian contours, while motion retains the original image-coordinate signed-turn convention. The first undefined speed/turn values remain NaN. There is no temporal interpolation.
+The two demonstration sequences contain 16 frames each, from one MDA-MB-231 cell and one iDMSC cell. The script first checks the SHA-256 hashes specified in the demo schema, then calculates and validates:
 
-This binary does **not** include or perform CPDINO/Cellpose segmentation, Trackastra tracking, original MATLAB ACA/DTAK dynamic segmentation, UMAP embedding, or full frozen-atlas projection. Those manuscript stages retain their external dependencies and licenses. The demo's raw image/mask crops and pre-existing motif labels are supporting data; motif labels are not recomputed by this feature demo. Follow the release reproducibility matrix for the separate full-derived-data statistics replay and external-stage instructions.
+| Measurement | Values per frame | Comparison tolerance (absolute / relative) |
+| --- | --- | --- |
+| Fourier invariants | 60 real values | 1e-6 / 1e-5 |
+| Complex Fourier coefficients | 33 complex values | 1e-6 / 1e-6 |
+| Centroid-motion and shape-change measurements | 7 real values | 1e-5 / 5e-6 |
 
-No Python bytecode is used as a substitute for the native feature implementation. Native compilation is a distribution format and does not prevent reverse engineering.
+A successful run returns exit status 0 and writes `validation.json` with `passed: true`. It also writes a `*_native_recomputed.npz` file for each sequence containing the calculated invariants, coefficients, motion, scale, perimeter, sampled contours, and feature names. Failed hash or numerical comparisons raise an error.
 
+## Feature definitions
+
+Contours are oriented consistently and resampled at 256 equally spaced arc-length positions. Complex Fourier coefficients and scale-normalized invariants are calculated through harmonic order 16. Contour coordinates are in micrometres and use a Cartesian convention, with image y coordinates negated.
+
+Motion calculations use contiguous observed identity intervals. The seven columns are displacement in x and y, speed, signed acceleration, the cosine and sine of the turning angle, and the rate of change of the Fourier-invariant vector. Motion retains the signed-turn convention of the image coordinates. Undefined initial speed or turning values remain NaN, and missing observations are not temporally interpolated.
+
+The Python interface exposes `describe`, `feature_names`, and `derive_motion` in `cellatlas_repro`. Array conversion and column naming are handled by Python; feature calculations run in the compiled module.
+
+## Relationship to the behavior atlas
+
+This demonstration starts with tracked contours and centroids. The supplied image crops and masks show the source cells, while reference motif labels describe their existing atlas assignments. Dynamic temporal segmentation, DTAK similarity, embedding, and motif assignment are separate stages described in [pipeline coverage](PIPELINE_SCOPE.md).
+
+The module is distributed under the [software license](LICENSE). Attribution and upstream software terms are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "core_version": "0.1.0rc2",
+  "elapsed_seconds": 0.35957209998741746,
   "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
   "platform": "Windows-10-10.0.26200-SP0",
   "numpy_version": "2.2.6",
@@ -88,5 +88,5 @@
       "passed": true
     }
   ],
-  "scope": "Native Fourier/motion reproduction on two real 16-frame sequences; no ACA/atlas/refitting or raw segmentation claim."
+  "scope": "Fourier descriptor and centroid-motion reconstruction for two real 16-frame cell tracks."
 }

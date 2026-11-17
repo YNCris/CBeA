@@ -1,43 +1,64 @@
-# Quantitative replay of the retained manuscript data
+# Reproducing the quantitative analyses
 
-Run from any directory with Python 3.10 or later and NumPy, pandas, SciPy, and Matplotlib installed:
+The statistical workflow recalculates the manuscript's quantitative results from the deposited derived measurements. It uses the reference exports only to verify the new calculations.
 
-```text
-python reproduce.py --data /path/to/extracted/dataset --out /path/to/replay_results
-```
+## Requirements and execution
 
-Use an output directory outside the data package. The script runs with one BLAS/OpenMP thread and does not modify source observations or frozen statistics.
+Use Python 3.10 or later with the NumPy, SciPy, pandas, and Matplotlib versions specified in [requirements-replay.txt](requirements-replay.txt). This workflow does not load the compiled feature module or require MATLAB. The tested environment is Windows with CPython 3.10.
 
-The input directory must contain `figure1/source_data`, `figure1/statistics`, `figure2/source_data`, `figure2/statistics`, `figure3/source_data`, and `figure3/statistics`. Exact files and SHA256 values are recorded in each `verification.json`. No original workstation paths or network shares are required.
-
-## What is actually recomputed
-
-- Figure 1: the two cell cohorts' time-mean cell-count and mean-area ΔF/F₀ point observations.
-- Figure 2: the continuous and 1/4/8 mM gradients' corresponding time-mean point observations.
-- Figure 3: whole-window motif fractions from covered-cell-frame counts, separately for each cohort and motif.
-- Balanced Drug × Nitrate ANOVA with interaction, residual sum of squares, degrees of freedom, F statistics, and ANOVA p values.
-- Every complete-family Tukey comparison: group means, signed difference, pooled MSE, q statistic, 95% simultaneous confidence limits, and the 0.05 significance decision.
-
-The script verifies all of these available frozen quantities, checks that every pair is present exactly once, and exits with status 2 when numeric checks fail. It refuses an unbalanced or incomplete factorial design instead of silently substituting another statistical model. Default tolerances are recorded in the code: generally absolute 1e-8 and relative 2e-7, with a wider absolute 2e-7 allowance for adjusted p calculations.
-
-Numeric Tukey adjusted p values require more expensive studentized-range integration. By default, three or fewer deterministic comparisons per family are checked: the smallest q, largest q, and q nearest the 0.05 critical value. All remaining `p_Tukey_recomputed` fields are blank and `p_recomputed` is false. Frozen reference p values are retained in a separately named comparison column. The significance decision for **every** pair is independently recomputed from q and its critical value. To also recompute all numeric adjusted p values, use:
+From the repository directory, run:
 
 ```text
-python reproduce.py --data /path/to/extracted/dataset --out /path/to/full_p_replay --full-p
+python -m pip install -r requirements-replay.txt
+python reproduce.py --data ../dataset --out ../results/statistics
 ```
 
-The full-p mode can be substantially slower; it performs integrations for tens of thousands of comparisons. No performance or completion claim is made until a run's verification report is available.
+Use the extracted [Zenodo dataset](https://doi.org/10.5281/zenodo.24302450) as `--data`, and an output directory outside that dataset. The script uses one BLAS/OpenMP thread and leaves the source files unchanged. Input file hashes are recorded in the output verification report.
 
-## Conventions that matter
+## Calculations
 
-The Figure 3 source table already uses motif IDs **1–20**. Label **0** means undefined/unassigned; it remains in each point's denominator. Do not add one to the motif IDs. The script checks that all fractions including label 0 sum to 100% and that percentages agree with the covered-frame counts. Motif numbers belong to their own cell-model dictionary; a 231 motif and an iDMSC motif bearing the same number are not assumed biologically equivalent.
+| Figure | Source observations | Recomputed analysis |
+| --- | --- | --- |
+| Figure 1 | Time-mean cell-count and mean-cell-area ΔF/F₀ for both cell models | Drug × Nitrate ANOVA and all within-family Tukey comparisons |
+| Figure 2 | Corresponding measurements for the continuous and three-dose gradients | Drug × Nitrate ANOVA and all within-family Tukey comparisons |
+| Figure 3 | Covered-cell-frame counts and motif fractions | Point-level fractions, Drug × Nitrate ANOVA, and motif-specific Tukey comparisons |
 
-Figures 1 and 2 store signed differences as **group 1 minus group 2**. Figure 3 stores them as **group 2 minus group 1**. The code explicitly preserves these different conventions and writes the convention beside each regenerated comparison.
+The balanced two-way ANOVA includes both main effects and their interaction. Each Tukey analysis recomputes group means, signed differences, pooled mean squared error, the studentized-range q statistic, simultaneous 95% confidence intervals, and the 0.05 significance decision. The script checks that every expected pair appears exactly once and rejects incomplete or unbalanced factorial designs.
 
-Each statistical observation is an imaging point. Points can share wells. This replay reproduces the manuscript's exploratory point-level analysis; it does not convert those points into independent biological replicates or introduce a well-level mixed model. Tukey families cover all Drug × Nitrate combinations separately for each outcome, cohort, and motif. There is no extra across-motif correction in this replay.
+### Numeric adjusted p values
 
-## Outputs and limits
+By default, the significance decision is recalculated for every pair from q and its critical value. Numeric adjusted p values are evaluated for up to three deterministic comparisons per family: the smallest q, largest q, and q closest to the critical value. Other entries in `p_Tukey_recomputed` are left blank and have `p_recomputed` set to false. Reference p values remain in a separately named column.
 
-`ANOVA_recomputed.csv`, `Tukey_recomputed.csv`, `group_means_recomputed.csv`, and `verification.json` are newly calculated from source observations. Three PNGs regenerate point plots and motif-difference heatmaps from those observations; they are diagnostic quantitative plots, not copies or pixel-identical reconstructions of the manuscript's layouts.
+To recompute every numeric adjusted p value, use:
 
-This path begins with retained derived point measurements. It does **not** rerun raw-image segmentation, tracking, Fourier extraction, ACA segmentation, reference sampling, atlas embedding, or full acquisition processing. A separate demo or private audit source bundle may cover some of those stages; describe its actual coverage separately. Running this script is not evidence that an omitted upstream stage has been reproduced.
+```text
+python reproduce.py --data ../dataset --out ../results/statistics_full --full-p
+```
+
+This option evaluates tens of thousands of studentized-range integrals and takes longer than the default mode.
+
+## Analysis conventions
+
+Each observation is an imaging point. Multiple points can share a well; they are not treated as independent biological replicates in the interpretation. The workflow reproduces the study's point-level statistical calculations and does not add a well-level mixed model.
+
+Tukey families comprise all Drug × Nitrate groups separately for each outcome, cohort, and motif. No additional correction across different motifs is applied.
+
+Motif IDs **1–20** refer to separate dictionaries for MDA-MB-231 and iDMSC. The same number in the two models does not imply the same phenotype. Label **0** denotes unassigned observations and remains in each point's denominator. The script checks that fractions, including label 0, sum to 100% and agree with the covered-frame counts.
+
+Signed differences follow the deposited source conventions: group 1 minus group 2 for Figures 1 and 2, and group 2 minus group 1 for Figure 3. The convention is written beside each recomputed comparison.
+
+## Outputs and validation
+
+| File | Content |
+| --- | --- |
+| `group_means_recomputed.csv` | Newly calculated group means and sample counts |
+| `ANOVA_recomputed.csv` | ANOVA effects, degrees of freedom, F statistics, and p values |
+| `Tukey_recomputed.csv` | Newly calculated pairwise results and reference comparisons |
+| `verification.json` | Input hashes, numerical checks, computation mode, and environment |
+| `figure1_quantitative_replay.png` | Recomputed Figure 1 quantitative plots |
+| `figure2_quantitative_replay.png` | Recomputed Figure 2 quantitative plots |
+| `figure3_motif_difference_replay.png` | Recomputed motif-difference heatmaps |
+
+A successful run returns exit status 0 and reports `passed: true`. The script returns exit status 2 when verification fails. Numerical comparisons generally use an absolute tolerance of 1e-8 and relative tolerance of 2e-7, with an absolute tolerance of 2e-7 for adjusted p values. The verification report records the results of these checks.
+
+The PNGs show the recalculated quantities; the publication's arranged figure layouts are supplied separately in the dataset. This workflow begins with derived point measurements. Feature extraction is demonstrated separately in [NATIVE_CORE_README.md](NATIVE_CORE_README.md), and upstream image processing and atlas construction are described in [PIPELINE_SCOPE.md](PIPELINE_SCOPE.md).

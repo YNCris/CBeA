@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.pyd -text
+*.png -text
+*.npz -text
+*.whl -text

@@ -2,7 +2,7 @@
 """Validate the compiled feature core against two real, frozen cell tracks.
 
 Usage: python validate_demo.py --data PATH/TO/minimal_demo --out validation.json
-This tests contour and motion features, not re-segmentation, ACA or atlas fitting.
+Reconstruct Fourier descriptors and centroid-motion features from measured cell tracks.
 """
 import argparse
 import hashlib
@@ -10,8 +10,9 @@ import json
 import platform
 from pathlib import Path
 import sys
+import time
 import numpy as np
-from cellatlas_repro import describe, derive_motion, feature_names, __version__, _native
+from cellatlas_repro import describe, derive_motion, feature_names, _native
 
 
 def sha(path):
@@ -31,6 +32,7 @@ def compare(actual, expected, name, atol, rtol):
 
 
 def main():
+    started = time.perf_counter()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', required=True, type=Path)
     parser.add_argument('--out', required=True, type=Path)
@@ -74,11 +76,11 @@ def main():
         records.append(dict(sample_id=item['sample_id'], n_frames=count, checks=checks,
                             inputs_sha256=sha(inp_path), expected_sha256=sha(exp_path),
                             native_output=output_name, passed=True))
-    result = dict(passed=True, core_version=__version__, python=sys.version,
+    result = dict(passed=True, elapsed_seconds=time.perf_counter()-started, python=sys.version,
                   platform=platform.platform(), numpy_version=np.__version__,
                   native_extension_filename=native.name, native_sha256=sha(native),
                   samples=records,
-                  scope='Native Fourier/motion reproduction on two real 16-frame sequences; no ACA/atlas/refitting or raw segmentation claim.')
+                  scope='Fourier descriptor and centroid-motion reconstruction for two real 16-frame cell tracks.')
     args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False), encoding='utf-8')
     print(json.dumps(result, indent=2))
 

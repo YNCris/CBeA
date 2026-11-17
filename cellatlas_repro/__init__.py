@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
-"""Version 0.1.0rc2: thin interface to the compiled study-owned feature core."""
+"""Python interface for compiled cell-contour and centroid-motion features."""
 import numpy as np
 from . import _native
-__version__='0.1.0rc2'
 MOTION_COLUMNS=['dx_um','dy_um','speed_um_h','signed_acceleration_um_h2','turn_cos','turn_sin','invariant_vector_change_L2_per_h']
 def describe(xy,order=16,n=256):
     """Cartesian contour coordinates: image y must be negated; units are um."""
