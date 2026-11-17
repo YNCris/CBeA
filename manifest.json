@@ -1,6 +1,6 @@
 {
   "version": "0.1.0-rc2",
-  "status": "Private GitHub staging repository; no public release or DOI",
+  "status": "Private GitHub software repository; companion dataset published on Zenodo; no public software release or software DOI",
   "software_license": "PolyForm-Noncommercial-1.0.0",
   "files": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": "AVAILABILITY_TEMPLATE.md",
-      "bytes": 2050,
-      "sha256": "6080281d00ea81df279deb66f111dad2d3fd5a00443c0da91c1333e2e6fb0006"
+      "bytes": 2582,
+      "sha256": "601d8aef104995c0403f80906990eb694e5f942dfc66ae49f8a328f8e8573f53"
     },
     {
       "path": "cellatlas_repro/__init__.py",
@@ -25,8 +25,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 996,
-      "sha256": "574f368e9be107f5a8fa16b5b8fa68064c0cf917ab13376a0c14336a884a768b"
+      "bytes": 1697,
+      "sha256": "349f6fc760a04a08f933fc283bc0985cb665d078918abf59122c995db5ffa9c8"
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5785,
-      "sha256": "93236ae797f770a2666b5b2abda13d66b5058317ecba652d669929162d7e5541"
+      "bytes": 7373,
+      "sha256": "87784390a5b016c9d76967e38ffebd545d8b21331c66c60cae1963c679a18dea"
     },
     {
       "path": "REPLAY_README.md",
@@ -116,5 +116,15 @@
   ],
   "repository_url": "https://github.com/YNCris/CBeA",
   "repository_visibility": "private",
-  "source_package_manifest_sha256": "6f7855b08f3233d7c4101c6a65b6ab45291ce5e52105e9fbe491401a8e83a069"
+  "source_package_manifest_sha256": "6f7855b08f3233d7c4101c6a65b6ab45291ce5e52105e9fbe491401a8e83a069",
+  "dataset": {
+    "record_url": "https://zenodo.org/records/24302450",
+    "version_doi": "10.5281/zenodo.24302450",
+    "concept_doi": "10.5281/zenodo.24302449",
+    "version": "0.1.0-rc2",
+    "license": "CC-BY-NC-4.0",
+    "archive": "CBeA_dataset_0.1.0-rc2.zip",
+    "archive_bytes": 33832968,
+    "archive_sha256": "6f652896f021709a5cc750bd402237a381cce74fc4d945ef73d6e5fbcb8cbc70"
+  }
 }

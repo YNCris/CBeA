@@ -4,11 +4,26 @@ Submission candidate **0.1.0-rc2**, prepared for *Nitrate shapes stress-resilien
 
 This repository contains a compiled **original Fourier contour/motion feature core**, a small real-data demo interface, and inspectable scripts for reproducing derived quantitative analyses. It is not a compiled redistribution of the original ACA/DTAK implementation or a substitute for its license. No model-training jobs or complete raw acquisitions are included.
 
+## Published dataset
+
+The companion **source data and minimal demonstration** are publicly available on Zenodo:
+
+- [Dataset record and files](https://zenodo.org/records/24302450)
+- **Version DOI (0.1.0-rc2): [10.5281/zenodo.24302450](https://doi.org/10.5281/zenodo.24302450)** — cite this DOI to identify the exact dataset used here.
+- [All-versions DOI: 10.5281/zenodo.24302449](https://doi.org/10.5281/zenodo.24302449) — resolves to the latest dataset version.
+- Data license: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Uses outside its permissions require separate authorization from the relevant rightsholder(s).
+
+[Download CBeA_dataset_0.1.0-rc2.zip (33.8 MB)](https://zenodo.org/records/24302450/files/CBeA_dataset_0.1.0-rc2.zip?download=1). SHA-256:
+
+    6f652896f021709a5cc750bd402237a381cce74fc4d945ef73d6e5fbcb8cbc70
+
+The deposit contains the minimal real-cell demos and retained derived measurements, atlas visualization outputs, statistical results and reference figures. Its scope and limitations are described below and in the dataset README. These DOIs identify the **dataset**, not the software. This code repository remains private and uses the separate PolyForm Noncommercial 1.0.0 license.
+
 ## Quick start
 
 The native core build targets **64-bit Windows, CPython 3.10**. Other platforms require a separately built and validated binary; they have not been tested by this release. The statistical replay itself is portable Python and does not require the native extension or MATLAB.
 
-1. Extract the code and dataset archives into separate directories.
+1. Obtain the code with owner-authorized repository access, and download the dataset ZIP linked above. Extract the ZIP alongside this code directory so that the input data are available at `../dataset/`.
 2. Use a Python 3.10 environment. Install the supplied native wheel as described in `NATIVE_CORE_README.md`, and install `requirements-replay.txt` for statistical replay.
 3. Run the documented compiled-core demo against `dataset/minimal_demo`. It checks computed features against original expected outputs. See `NATIVE_CORE_README.md` for the exact command and tested build information.
 4. Recompute derived statistics:
@@ -47,5 +62,10 @@ The C++ source and build records remain in a separate author-private bundle for 
 
 ## Version and citation
 
-Use CITATION.cff as citation metadata. This code is staged in the private repository https://github.com/YNCris/CBeA; access requires authorization from its owner. Version 0.1.0-rc2 is a submission candidate; no public release or DOI has been issued. The separately prepared dataset is licensed under CC BY-NC 4.0, with its hosting repository still to be selected. Dataset and code manifests contain content hashes; verify them after transfer. Original data, manuscript and historical analyses were not overwritten.
+Use CITATION.cff for software citation metadata and its companion dataset reference. The code is held in the [private CBeA repository](https://github.com/YNCris/CBeA); access requires authorization from its owner. Software version 0.1.0-rc2 remains a submission candidate with no public software release or software DOI.
 
+Cite the published dataset as:
+
+> Han, Y., Hou, X., Li, X., Zhang, R., Chen, M., & Wang, S. (2026). *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion: source data and minimal demonstration* (Version 0.1.0-rc2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24302450
+
+Dataset and code manifests contain content hashes; verify them after transfer. Original data, manuscript and historical analyses were not overwritten.
