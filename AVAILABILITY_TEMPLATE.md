@@ -1,5 +1,7 @@
 # Data and code availability wording template
 
+Current preparation status: code is held in the private repository https://github.com/YNCris/CBeA. The dataset candidate uses CC BY-NC 4.0 and has not been deposited. The statements below are templates for eventual deposition, not claims that the data or code are publicly available.
+
 Replace bracketed repository identifiers after an actual deposit. The software
 license is PolyForm Noncommercial 1.0.0; this template does not assign a DOI or
 change the separately managed data license.
@@ -16,7 +18,7 @@ data-release terms.
 Code availability:
 The CBeA reproduction package is available at [CODE REPOSITORY, RELEASE, AND DOI].
 The original software is licensed under PolyForm Noncommercial License 1.0.0.
-It contains a Windows x64 CPython 3.10 compiled implementation of the study-owned
+It contains a Windows x64 CPython 3.10 compiled implementation of the original
 Fourier/motion features and inspectable scripts for derived statistical replay.
 Uses outside that license's permissions require separate authorization from the
 relevant institutional rightsholder(s). The license's provisions for the listed

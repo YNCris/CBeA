@@ -1,6 +1,6 @@
 {
   "version": "0.1.0-rc2",
-  "status": "Local release; not publicly deposited",
+  "status": "Private GitHub staging repository; no public release or DOI",
   "software_license": "PolyForm-Noncommercial-1.0.0",
   "files": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": "AVAILABILITY_TEMPLATE.md",
-      "bytes": 1766,
-      "sha256": "f1aebaf9995368132ca27e5694541ad98d8b983741320ffba64f8cd4d1a1fefb"
+      "bytes": 2050,
+      "sha256": "6080281d00ea81df279deb66f111dad2d3fd5a00443c0da91c1333e2e6fb0006"
     },
     {
       "path": "cellatlas_repro/__init__.py",
@@ -25,8 +25,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 941,
-      "sha256": "3546ce65048dc78ff50aefbd5417f8c0cc41cdb1764a0d616254a118466c5b53"
+      "bytes": 996,
+      "sha256": "574f368e9be107f5a8fa16b5b8fa68064c0cf917ab13376a0c14336a884a768b"
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5605,
-      "sha256": "0ca257460cc069f8c2bf2cfdfa2fdff9b6e12fd08300cc35bfc45be9d65cae69"
+      "bytes": 5785,
+      "sha256": "93236ae797f770a2666b5b2abda13d66b5058317ecba652d669929162d7e5541"
     },
     {
       "path": "REPLAY_README.md",
@@ -113,5 +113,8 @@
       "bytes": 21487,
       "sha256": "dde554a02f0deeb597d05fcd6e9d2913ea8a28c23438bdd19bc7b77d9541598f"
     }
-  ]
+  ],
+  "repository_url": "https://github.com/YNCris/CBeA",
+  "repository_visibility": "private",
+  "source_package_manifest_sha256": "6f7855b08f3233d7c4101c6a65b6ab45291ce5e52105e9fbe491401a8e83a069"
 }

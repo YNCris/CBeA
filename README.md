@@ -47,5 +47,5 @@ The C++ source and build records remain in a separate author-private bundle for 
 
 ## Version and citation
 
-Use `CITATION.cff` as metadata. A repository URL, release identifier and DOI must be added only after real deposit. No repository or DOI has been created by this local packaging step. Dataset and code manifests contain content hashes; verify them after transfer. Original data, manuscript and historical analyses were not overwritten.
+Use CITATION.cff as citation metadata. This code is staged in the private repository https://github.com/YNCris/CBeA; access requires authorization from its owner. Version 0.1.0-rc2 is a submission candidate; no public release or DOI has been issued. The separately prepared dataset is licensed under CC BY-NC 4.0, with its hosting repository still to be selected. Dataset and code manifests contain content hashes; verify them after transfer. Original data, manuscript and historical analyses were not overwritten.
 

@@ -17,5 +17,5 @@ authors:
     given-names: Mo
   - family-names: Wang
     given-names: Songlin
-abstract: "Compiled original feature demonstration and derived-data statistical reproduction for Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion. Original software is licensed under PolyForm Noncommercial 1.0.0; repository and DOI metadata await actual deposit."
-
+abstract: "Compiled original feature demonstration and derived-data statistical reproduction for Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion. Original software is licensed under PolyForm Noncommercial 1.0.0; the repository is private and no DOI has been assigned."
+repository-code: "https://github.com/YNCris/CBeA"
