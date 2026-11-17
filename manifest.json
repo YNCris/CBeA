@@ -1,0 +1,117 @@
+{
+  "version": "0.1.0-rc2",
+  "status": "Local release; not publicly deposited",
+  "software_license": "PolyForm-Noncommercial-1.0.0",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 39,
+      "sha256": "65a1ed2dfb1f4c81e49a31920484c08af6170ff8348ecbed75a9a06f78ee5e83"
+    },
+    {
+      "path": "AVAILABILITY_TEMPLATE.md",
+      "bytes": 1766,
+      "sha256": "f1aebaf9995368132ca27e5694541ad98d8b983741320ffba64f8cd4d1a1fefb"
+    },
+    {
+      "path": "cellatlas_repro/__init__.py",
+      "bytes": 1210,
+      "sha256": "29ebb4a42bd2cf2e0418f20d30a09cb561ee8267a74ba2af810c78fb65ae34f4"
+    },
+    {
+      "path": "cellatlas_repro/_native.cp310-win_amd64.pyd",
+      "bytes": 32768,
+      "sha256": "a5d4fa45aa4a00ada936747a171e6e3ba632e4eda738368d39184b2457b6e186"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 941,
+      "sha256": "3546ce65048dc78ff50aefbd5417f8c0cc41cdb1764a0d616254a118466c5b53"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 4563,
+      "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
+    },
+    {
+      "path": "NATIVE_CORE_README.md",
+      "bytes": 3252,
+      "sha256": "a3263e74bad1e75898f2d7b012aeaa16fb0bd642c2f089f7e74b7699bf058d04"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 1700,
+      "sha256": "36b3435d6805cc9a1f12dec884b4ec82bd5e8ee598e5d10ea868255d09383f6f"
+    },
+    {
+      "path": "PIPELINE_SCOPE.md",
+      "bytes": 3287,
+      "sha256": "88ee4094285182544249467f3d98e2518ce5e6cc8a69775b8a9559f454cd3436"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5605,
+      "sha256": "0ca257460cc069f8c2bf2cfdfa2fdff9b6e12fd08300cc35bfc45be9d65cae69"
+    },
+    {
+      "path": "REPLAY_README.md",
+      "bytes": 4592,
+      "sha256": "5a34e3ade22e77f9c661a858a4218371fef26dc5e2909e76f2473ecfedf98b42"
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 20799,
+      "sha256": "0f5a76cc759701e877e9376c14db825ce48f1423d7df93b0823b24186a0de5d6"
+    },
+    {
+      "path": "requirements-replay.txt",
+      "bytes": 463,
+      "sha256": "db604096346266a28c73560fce59c05aefa860aec5b25a6af224087c3b2bddc1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 7098,
+      "sha256": "d70f08aff6ea7ba7a3059d7e91035eca8201cba617642b5fea52e1d0c883d2cd"
+    },
+    {
+      "path": "validate_demo.py",
+      "bytes": 4768,
+      "sha256": "1b145a3ded9a502ee093b0238c8ade7818348b5846c923dcb4ee8e45bcebd041"
+    },
+    {
+      "path": "validation/full_statistics_verification.json",
+      "bytes": 5632,
+      "sha256": "01b811639bafc9400ad1153be2b5c7e60c3d9b20af96472ebf2d359e3266ca70"
+    },
+    {
+      "path": "validation/license_migration.json",
+      "bytes": 349,
+      "sha256": "0fc87f1a9ad981ab18f439c6b5bf33e491444ed8ec3498b68b39e9586135b41d"
+    },
+    {
+      "path": "validation/license_source.json",
+      "bytes": 403,
+      "sha256": "ec633102282adfab0b6449a87bc0ba27dd05083cfcefa224e6ace5e5e60097e7"
+    },
+    {
+      "path": "validation/native_validation.json",
+      "bytes": 2712,
+      "sha256": "e738a6898a84a7dfff9e4d6239a3ebc3d0e9aa1fddcbda9cb9dc7db9b3bf70ba"
+    },
+    {
+      "path": "validation/package_validation.json",
+      "bytes": 3228,
+      "sha256": "c0beeb610917ddde1b107dc9bd5bf34fde12a782b7b6d7e6790863213f05b04b"
+    },
+    {
+      "path": "verify_release.py",
+      "bytes": 1721,
+      "sha256": "7751a08a8f9fd157ca4bf7edbd3f5cd23da98fb76cbd2db0028ca7fb6d59b23e"
+    },
+    {
+      "path": "wheels/cellatlas_repro_core-0.1.0rc2-cp310-cp310-win_amd64.whl",
+      "bytes": 21487,
+      "sha256": "dde554a02f0deeb597d05fcd6e9d2913ea8a28c23438bdd19bc7b77d9541598f"
+    }
+  ]
+}

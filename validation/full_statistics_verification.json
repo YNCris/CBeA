@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "elapsed_seconds": 372.0389417000115,
+  "statistical_families": 88,
+  "anova_effects": 264,
+  "tukey_pairs": 45210,
+  "adjusted_p_values_recomputed": 45210,
+  "full_p": true,
+  "fields": {
+    "ANOVA_SS": {
+      "checked": 144,
+      "failed": 0,
+      "max_abs_error": 1.8189894035458565e-12
+    },
+    "ANOVA_F": {
+      "checked": 264,
+      "failed": 0,
+      "max_abs_error": 1.1368683772161603e-13
+    },
+    "ANOVA_MSE": {
+      "checked": 24,
+      "failed": 0,
+      "max_abs_error": 6.938893903907228e-17
+    },
+    "ANOVA_MS": {
+      "checked": 24,
+      "failed": 0,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    "ANOVA_df_num": {
+      "checked": 264,
+      "failed": 0,
+      "max_abs_error": 0.0
+    },
+    "ANOVA_df_error": {
+      "checked": 264,
+      "failed": 0,
+      "max_abs_error": 0.0
+    },
+    "ANOVA_p_ANOVA": {
+      "checked": 264,
+      "failed": 0,
+      "max_abs_error": 8.326672684688674e-15
+    },
+    "Tukey_difference": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 7.105427357601002e-15
+    },
+    "Tukey_q_statistic": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 1.0658141036401503e-14
+    },
+    "Tukey_MSE": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 3.552713678800501e-15
+    },
+    "Tukey_CI95_low": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 8.881784197001252e-15
+    },
+    "Tukey_CI95_high": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 7.105427357601002e-15
+    },
+    "Tukey_df_error": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 0.0
+    },
+    "Tukey_family_groups": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 0.0
+    },
+    "Tukey_mean1": {
+      "checked": 4110,
+      "failed": 0,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    "Tukey_mean2": {
+      "checked": 4110,
+      "failed": 0,
+      "max_abs_error": 4.440892098500626e-16
+    },
+    "Tukey_significant_alpha_0p05": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 0.0
+    },
+    "Tukey_adjusted_p_selected": {
+      "checked": 45210,
+      "failed": 0,
+      "max_abs_error": 5.10702591327572e-15
+    }
+  },
+  "failures": [],
+  "inputs": [
+    {
+      "file": "figure1/statistics/Prism_Tukey66_all_pairs_v36.csv",
+      "sha256": "167e878479929d25d1b76eb1a0b147909417ff623ffe05f4488bd829e70f8e55",
+      "rows": 264
+    },
+    {
+      "file": "figure1/statistics/Prism_two_way_ANOVA_v36.csv",
+      "sha256": "d1ab5b7f84fd95d7c35ab6a6302ce9420d1806733c4b3005ebc288a0f70f79c2",
+      "rows": 12
+    },
+    {
+      "file": "figure1/source_data/point_time_mean_count_values_dff.csv",
+      "sha256": "1b95a4be17fa40e74dc957d0e58e9faa3e128683c5bf3a0be36c1078494abc33",
+      "rows": 480
+    },
+    {
+      "file": "figure1/source_data/point_time_mean_area_values_dff.csv",
+      "sha256": "dec00de612c994abfde5fb43824511bbf5d33c54f4da6ae73ff409ec8b128f83",
+      "rows": 480
+    },
+    {
+      "file": "figure2/source_data/point_time_means_dff.csv",
+      "sha256": "258d9bf64ff32f4b22f0f842ad3015132f7319c426375c691482192da1638ea8",
+      "rows": 456
+    },
+    {
+      "file": "figure2/statistics/Prism_Tukey_all_pairs.csv",
+      "sha256": "2be2cbe108cb5b12d0b190d5e33a551e43620b469190beedb7136c118cda2960",
+      "rows": 3846
+    },
+    {
+      "file": "figure2/statistics/Prism_two_way_ANOVA.csv",
+      "sha256": "fdb1832bfa8c0ad88cecd6b4d1781467e09febbafc55205625bdc6a2e4954291",
+      "rows": 12
+    },
+    {
+      "file": "figure3/source_data/point_motif_occupancy.csv",
+      "sha256": "6204accc3d6bedce800823182b9184ecb59da2b41ff965a8b51cca8b3af52fa5",
+      "rows": 78624
+    },
+    {
+      "file": "figure3/statistics/Tukey_all12_pairs.csv",
+      "sha256": "76e5ab57c3891d16966c09f2ff7fc4944259ee569966b48368a7bd4654f493b9",
+      "rows": 2640
+    },
+    {
+      "file": "figure3/statistics/two_way_ANOVA.csv",
+      "sha256": "699fe8bac5f42923d10b0221a6a2039f399e3abee1f9e793fa414eadc93d7e45",
+      "rows": 120
+    },
+    {
+      "file": "figure3/statistics/gradient_Tukey_all_pairs_v15.csv",
+      "sha256": "80c425fa2732ff961a5a47345e112f7086d9a92c5106c5161b133a5255ec5157",
+      "rows": 38460
+    },
+    {
+      "file": "figure3/statistics/gradient_two_way_ANOVA_v15.csv",
+      "sha256": "03a9138ca32c36cd76781588314e2ae13a2f7224a64fd924112f35b43458180c",
+      "rows": 120
+    }
+  ],
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3"
+  },
+  "scope": "Recompute point-level balanced ANOVA, all Tukey means/differences/MSE/q/CI/significance from retained derived inputs. No segmentation, tracking, atlas refit, or raw-acquisition replay.",
+  "adjusted_p_policy": "All numeric adjusted p values",
+  "motif_convention": "Data and tests both use motif IDs 1..20. Label 0 is undefined/unassigned and stays in fraction denominators; it is not renumbered.",
+  "effect_direction": "Figures 1/2: mean1-minus-mean2. Figure3: mean2-minus-mean1, as in frozen tables.",
+  "limitations": [
+    "Imaging points share wells; the replay preserves the published exploratory point-level model and does not add a well-level random effect.",
+    "Tukey correction is within each full factorial family, not across motifs or separate outcomes.",
+    "Plots are quantitative diagnostic regenerations, not pixel-identical recreations of manuscript layouts."
+  ]
+}

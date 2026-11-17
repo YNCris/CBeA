@@ -1,0 +1,31 @@
+Required Notice: Cellular Behavior Atlas (CBeA), nitrate manuscript reproduction software.
+Required Notice: PolyForm Noncommercial License 1.0.0 applies to the original software identified in this release.
+
+Scope
+The compiled study-owned Fourier/motion core, supplied Python interfaces,
+validation scripts, statistical replay code, and accompanying software
+documentation are offered under the unmodified LICENSE. This notice describes
+scope and request routing; it adds no restrictions to rights granted by LICENSE.
+The PolyForm license text itself remains governed by its original authors' terms.
+
+Separate materials
+Datasets, microscopy images, manuscript figures, tables, and third-party software
+or models are not relicensed by this software notice. See THIRD_PARTY_NOTICES.md
+and the dataset README for their separate status.
+
+Uses outside the permission granted by LICENSE require separate authorization
+from the relevant institutional rightsholder(s), through an authorized
+representative. Uses already permitted by LICENSE, including the
+Noncommercial Organizations provision, do not need another permission under
+this notice.
+
+Commercial-license inquiries may be routed through the manuscript's
+corresponding authors:
+Songlin Wang: slwang@ccmu.edu.cn
+Mo Chen: chenm7@sustech.edu.cn
+These are inquiry routes, not a statement that an individual author personally
+owns the software or can bind every institution. Any commercial agreement must
+be issued by the relevant authorized institutional representative.
+
+Please cite the associated manuscript and software release in academic work.
+This citation request does not add a condition to the unmodified LICENSE.

@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "core_version": "0.1.0rc2",
+  "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy_version": "2.2.6",
+  "native_extension_filename": "_native.cp310-win_amd64.pyd",
+  "native_sha256": "a5d4fa45aa4a00ada936747a171e6e3ba632e4eda738368d39184b2457b6e186",
+  "samples": [
+    {
+      "sample_id": "231_cell_001",
+      "n_frames": 16,
+      "checks": {
+        "invariants": {
+          "shape": [
+            16,
+            60
+          ],
+          "atol": 1e-06,
+          "rtol": 1e-05,
+          "max_absolute_error": 0.0,
+          "nan_pattern_equal": true
+        },
+        "coefficients": {
+          "shape": [
+            16,
+            33
+          ],
+          "atol": 1e-06,
+          "rtol": 1e-06,
+          "max_absolute_error": 0.0,
+          "nan_pattern_equal": true
+        },
+        "motion": {
+          "shape": [
+            16,
+            7
+          ],
+          "atol": 1e-05,
+          "rtol": 5e-06,
+          "max_absolute_error": 7.62939453125e-06,
+          "nan_pattern_equal": true
+        }
+      },
+      "inputs_sha256": "c265021d0a83f8a1d180a8ec4742885e8c9146bd80d8e6a6558bf83ad9010350",
+      "expected_sha256": "1d29399229752f072057fe1303d8ff9b2a095ec06579690e798e0c452390ac26",
+      "native_output": "231_cell_001_native_recomputed.npz",
+      "passed": true
+    },
+    {
+      "sample_id": "iDMSC_cell_001",
+      "n_frames": 16,
+      "checks": {
+        "invariants": {
+          "shape": [
+            16,
+            60
+          ],
+          "atol": 1e-06,
+          "rtol": 1e-05,
+          "max_absolute_error": 0.0,
+          "nan_pattern_equal": true
+        },
+        "coefficients": {
+          "shape": [
+            16,
+            33
+          ],
+          "atol": 1e-06,
+          "rtol": 1e-06,
+          "max_absolute_error": 0.0,
+          "nan_pattern_equal": true
+        },
+        "motion": {
+          "shape": [
+            16,
+            7
+          ],
+          "atol": 1e-05,
+          "rtol": 5e-06,
+          "max_absolute_error": 3.814697265625e-06,
+          "nan_pattern_equal": true
+        }
+      },
+      "inputs_sha256": "6187c9fd3c28d7a4a69f6c8dfc225b3a6c6e7a5fc9c58ba44b5cb2542e357f61",
+      "expected_sha256": "4df8c12c82ae47f95f8962051dbc32b8dfd8154143bb66e973d7d76844a4ca80",
+      "native_output": "iDMSC_cell_001_native_recomputed.npz",
+      "passed": true
+    }
+  ],
+  "scope": "Native Fourier/motion reproduction on two real 16-frame sequences; no ACA/atlas/refitting or raw segmentation claim."
+}

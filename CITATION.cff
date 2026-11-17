@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript and the final deposited release when available. This is an unpublished submission candidate without a DOI."
+type: software
+title: "Cellular Behavior Atlas (CBeA): nitrate manuscript reproduction package"
+version: "0.1.0-rc2"
+license: "PolyForm-Noncommercial-1.0.0"
+authors:
+  - family-names: Han
+    given-names: Yaning
+  - family-names: Hou
+    given-names: Xiaoting
+  - family-names: Li
+    given-names: Xiaoyu
+  - family-names: Zhang
+    given-names: Ran
+  - family-names: Chen
+    given-names: Mo
+  - family-names: Wang
+    given-names: Songlin
+abstract: "Compiled original feature demonstration and derived-data statistical reproduction for Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion. Original software is licensed under PolyForm Noncommercial 1.0.0; repository and DOI metadata await actual deposit."
+
