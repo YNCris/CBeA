@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: Please cite the associated study and the companion dataset listed below when
   using CBeA.
 type: software
-title: Cellular Behavior Atlas (CBeA)
+title: Cell Behavior Atlas (CBeA)
 license: PolyForm-Noncommercial-1.0.0
 authors:
 - family-names: Han

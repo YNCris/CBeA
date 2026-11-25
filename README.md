@@ -1,4 +1,4 @@
-# CBeA: Cellular Behavior Atlas
+# CBeA: Cell Behavior Atlas
 
 CBeA combines cell-shape dynamics and centroid motion to characterize cellular behavior. This repository accompanies *Nitrate shapes stress-resilient behavioral dynamics during sustained cellular expansion* and provides the compiled feature-extraction module, a real-cell demonstration, and scripts to reproduce the quantitative analyses in Figures 1–3.
 

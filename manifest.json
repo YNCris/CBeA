@@ -1,5 +1,5 @@
 {
-  "name": "Cellular Behavior Atlas (CBeA)",
+  "name": "Cell Behavior Atlas (CBeA)",
   "software_license": "PolyForm-Noncommercial-1.0.0",
   "repository_url": "https://github.com/YNCris/CBeA",
   "dataset": {
@@ -22,8 +22,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 1330,
-      "sha256": "8a1dc255d0dc426224dc0f40dbbbe554e0511d5861dbf57b45c4c2e0e27161a0"
+      "bytes": 1326,
+      "sha256": "d9bf941ffaf97a2b75cbbbb9c34c1181128f738b726a40c237e5fc54241f4452"
     },
     {
       "path": "DATA_AVAILABILITY.md",
@@ -42,8 +42,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 1661,
-      "sha256": "f78f75c94a303dad39dd3cbece8f60b853437cc1e6255fc8f4268879236a2694"
+      "bytes": 1657,
+      "sha256": "435ce5b45e4677b88b0feabccc5751dd654008277a28847bceb729719ac0f8c2"
     },
     {
       "path": "PIPELINE_SCOPE.md",
@@ -52,8 +52,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6081,
-      "sha256": "31cbc59393a2a4f326c19b0e02998656ccbc1f73b3ec03deaa88ecd3843612e4"
+      "bytes": 6077,
+      "sha256": "362da6109a2d027fc6c0e7de0fcb6c2a5608d2ae2ba213aafa1a40a71af58e12"
     },
     {
       "path": "REPLAY_README.md",
